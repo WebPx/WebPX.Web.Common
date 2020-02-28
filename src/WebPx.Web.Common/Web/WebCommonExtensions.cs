@@ -1,4 +1,8 @@
-﻿using WebPx.Web.TagHelpers;
+﻿using Microsoft.Extensions.DependencyInjection.Extensions;
+using System;
+using WebPx.Web;
+using WebPx.Web.Configuration;
+using WebPx.Web.TagHelpers;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
@@ -9,8 +13,18 @@ namespace Microsoft.Extensions.DependencyInjection
         /// </summary>
         public static IServiceCollection AddTagHelperAdapters(this IServiceCollection services)
         {
-            services.AddTransient<ITagHelperAdapter, DefaultTagHelperAdapter>();
-            services.AddSingleton<AdapterResolver>();
+            services.TryAddTransient<ITagHelperAdapter, DefaultTagHelperAdapter>();
+            services.TryAddSingleton<AdapterResolver>();
+            return services;
+        }
+
+        public static IServiceCollection AddSiteFeatures(this IServiceCollection services, Action<SiteInfo> configure = null)
+        {
+            services.AddTagHelperAdapters();
+            services.TryAddSingleton<ISiteSettings, SiteSettings>();
+            services.ConfigureOptions<SiteInfoConfiguration>();
+            if (configure != null)
+                services.Configure(configure);
             return services;
         }
     }
