@@ -25,6 +25,12 @@ namespace Microsoft.Extensions.DependencyInjection
             services.ConfigureOptions<SiteInfoConfiguration>();
             if (configure != null)
                 services.Configure(configure);
+            else
+                services.Configure<SiteInfo>((o) =>
+                {
+                    o.Name = "WebSite";
+                    o.Copyright = "Copyright &copy; {1} {0}. All rights reserved.";
+                });
             return services;
         }
     }

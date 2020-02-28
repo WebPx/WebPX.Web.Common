@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace WebPx.Web.TagHelpers
 {
-    public static class TagHelperExtesions
+    public static class TagHelperExtensions
     {
         public static void SetClasses(this TagHelperOutput output, IEnumerable<string> primaryClasses)
         {
