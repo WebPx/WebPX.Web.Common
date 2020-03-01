@@ -1,4 +1,4 @@
-# WebPX.Web.Common
+# WebPX.Web.Common [![Build status](https://ci.appveyor.com/api/projects/status/k0yc47reyvfypyra?svg=true)](https://ci.appveyor.com/project/jlchavez/webpx-web-common)
 ASP.NET Core Web Common Utilities
 ## Adding to your project
 You can find it in https://www.nuget.org/packages/WebPx.Web.Common
