@@ -1,4 +1,4 @@
-# WebPX.Web.Common
+# WebPx.Web.Common [![Build status](https://ci.appveyor.com/api/projects/status/k0yc47reyvfypyra?svg=true)](https://ci.appveyor.com/project/jlchavez/webpx-web-common)
 ASP.NET Core Web Common Utilities
 ## Adding to your project
 You can find it in https://www.nuget.org/packages/WebPx.Web.Common
@@ -24,10 +24,11 @@ You can configure the Site Info for your application in two ways:
 ### appsettings.json
 
 ```
-services.AddSiteFeatures((o) =>
 {
-    o.Name = "WebPx AdminLTE Demo"; 
-    o.Copyright = "Copyright &copy; {1} <a href='https://webpx.com'>{0}<a/>. All rights reserved.";
+    "SiteInfo" : {
+        "Name" : "WebPx AdminLTE Demo",
+        "Copyright" : "Copyright &copy; {1} <a href='https://webpx.com'>{0}<a/>. All rights reserved."
+    }
 });
 ```
 
@@ -40,6 +41,17 @@ services.AddSiteFeatures((o) =>
     o.Copyright = "Copyright &copy; {1} <a href='https://webpx.com'>{0}<a/>. All rights reserved.";
 });
 ```
+
+## Using TagHelper Adapters
+
+### Overriding the primary TagHelperAdapter
+This should be done before calling *AddSiteFeatures*
+
+    services.AddTransient<ITagHelperAdapter, DefaultTagHelperAdapter>();
+    
+### Overriding the specifig TagHelperAdapter
+
+    services.AddTransient<ITagHelperAdapter<TagHelperType>, CustomTagHelperAdapter>();
 
 ## Change History
 Version | Date | Description
