@@ -21,16 +21,10 @@ namespace Microsoft.Extensions.DependencyInjection
         public static IServiceCollection AddSiteFeatures(this IServiceCollection services, Action<SiteInfo> configure = null)
         {
             services.AddTagHelperAdapters();
-            services.TryAddSingleton<ISiteSettings, SiteSettings>();
+            services.TryAddScoped<ISiteSettings, SiteSettings>();
             services.ConfigureOptions<SiteInfoConfiguration>();
             if (configure != null)
                 services.Configure(configure);
-            else
-                services.Configure<SiteInfo>((o) =>
-                {
-                    o.Name = "WebSite";
-                    o.Copyright = "Copyright &copy; {1} {0}. All rights reserved.";
-                });
             return services;
         }
     }

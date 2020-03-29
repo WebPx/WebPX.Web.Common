@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup Label="Globals">
     <SccProjectName>SAK</SccProjectName>
@@ -10,7 +10,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <SignAssembly>true</SignAssembly>
-    <AssemblyOriginatorKeyFile>C:\Users\Administrator\source\repos\WebPx.Portal\Signing\WebPx6.pfx</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>WebPx6.pfx</AssemblyOriginatorKeyFile>
     <ApplicationIcon />
     <OutputType>Library</OutputType>
     <StartupObject />
@@ -22,11 +22,12 @@
     <PackageProjectUrl>https://docs.webpx.com/WebPx/Framework/8</PackageProjectUrl>
     <AssemblyVersion>0.9.0.0</AssemblyVersion>
     <FileVersion>0.9.0.0</FileVersion>
-    <Version>0.9.2</Version>
+    <Version>0.9.3</Version>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <RepositoryUrl>https://github.com/WebPx/WebPx.Web.Common</RepositoryUrl>
     <PackageTags>WebPx, ASP.Net Core</PackageTags>
     <Description>ASP.NET Core Web Common Utilities</Description>
+    <DelaySign>false</DelaySign>
   </PropertyGroup>
 
   <ItemGroup>
@@ -34,7 +35,6 @@
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
-    <None Include="..\Signing\WebPx6.pfx" Link="WebPx6.pfx" />
   </ItemGroup>
 
   <ItemGroup>

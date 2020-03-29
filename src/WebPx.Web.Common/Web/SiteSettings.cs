@@ -7,11 +7,13 @@ namespace WebPx.Web
 {
     public class SiteSettings : ISiteSettings
     {
-        public SiteSettings(IOptions<SiteInfo> siteInfoOptions)
+        private readonly IOptionsSnapshot<SiteInfo> SiteInfoSnapshot;
+
+        public SiteSettings(IOptionsSnapshot<SiteInfo> siteInfoOptions)
         {
-            SiteInfo = siteInfoOptions.Value;
+            SiteInfoSnapshot = siteInfoOptions;
         }
 
-        public SiteInfo SiteInfo { get; }
+        public SiteInfo SiteInfo => SiteInfoSnapshot.Value;
     }
 }
